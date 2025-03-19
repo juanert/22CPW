@@ -36,6 +36,11 @@ main div:nth-child(1){
 main div:nth-child(2){
   background-color: green;
   animation: rotar 2s 0s infinite both alternate-reverse;
+  transition: all 1s 0s linear;
+}
+
+main div:nth-child(2):hover{
+  border: 10px solid red;
 }
 
 /* CREAR LA ANIMACION (VAMOS A UTILIZAR DECORADOR @) */
