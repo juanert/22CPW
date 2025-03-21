@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flor amarilla</title>
+  <style>
+    *{
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+    body{
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      height: 100vh;
+      background: linear-gradient(120deg, rgb(204, 248, 255), rgb(230, 252, 255));
+      margin: 0;
+      overflow: hidden;
+    }
+    .contenedor-flor{
+      position: relative;
+      width: 150px;
+      height: 400px;
+      background-color: red;
+    }
+    .flor{
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      top: 0;
+    }
+    .petalo{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 60px;
+      height: 120px;
+      border-radius: 50%;
+      background-color: yellow;
+      transform-origin: top left;
+    }
+
+    .petalo:nth-child(1){
+      transform: rotate(0deg) translateX(-50%, -50%);
+    }
+
+    .petalo:nth-child(2){
+      transform: rotate(45deg);
+    }
+    .petalo:nth-child(3){
+      transform: rotate(90deg);
+    }
+    .petalo:nth-child(4){
+      transform: rotate(135deg);
+    }
+    .petalo:nth-child(5){
+      transform: rotate(180deg);
+    }
+    .petalo:nth-child(6){
+      transform: rotate(225deg);
+    }
+    .petalo:nth-child(7){
+      transform: rotate(270deg);
+    }
+    .petalo:nth-child(8){
+      transform: rotate(315deg);
+    }
+    .centro{
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      background: radial-gradient(circle, rgb(54, 22, 22), rgb(72, 40, 40));
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+    }
+    .suelo{
+      position: absolute;
+      width: 100%;
+      height: 30px;
+      background-color: rgb(81, 38, 38);
+      bottom: 0;
+      left: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="contenedor-flor">
+    <div class="flor">
+      <div class="petalo" style="--rot: 0deg"></div>
+      <div class="petalo" style="--rot: 45deg"></div>
+      <div class="petalo" style="--rot: 90deg"></div>
+      <div class="petalo" style="--rot: 135deg"></div>
+      <div class="petalo" style="--rot: 180deg"></div>
+      <div class="petalo" style="--rot: 225deg"></div>
+      <div class="petalo" style="--rot: 270deg"></div>
+      <div class="petalo" style="--rot: 315deg"></div>
+      <div class="centro"></div>
+    </div>
+    <div class="tallo"></div>
+    <div class="hoja"></div>
+  </div>
+  <div class="suelo"></div>
+</body>
+</html>
