@@ -1,0 +1,85 @@
+*
+  margin: 0
+  padding: 0
+  box-sizing: border-box
+  font-family: sans-serif
+
+/* COMENTARIO DE VARIAS LINEAS */
+// ESTO TAMBIEN ES UN COMENTARIO
+// ESTO ES OTRO COMENTARIO
+
+// LAS VARIABLES EN SASS (espacio en memoria)
+$colorPrincipal: blue
+$tamanoPrincipal: 500px
+$fuentePrincipal: 50px
+$fuenteFamilia : 'sans-serif'
+
+// ANIDAMIENTO (Nos permite seleccionar de la estructura de los hijos de un elemento)
+
+main
+  width: $tamanoPrincipal
+  height: $tamanoPrincipal
+  background-color: $colorPrincipal
+  color: white
+  &:hover
+    background-color: yellow
+  h1
+    font-size: $fuentePrincipal
+  p
+    color: purple
+
+// LOS MIXIN (CON Y SIN PARAMETROS): SON FRAGMENTOS DE CODIGO QUE SE PUEDEN REUTILIZAR
+@mixin my-mixin($color, $colorTexto)
+  padding: 10px 25px
+  border: 0
+  border-radius: 20px
+  background-color: $color
+  color: $colorTexto
+
+main
+  .aceptar
+    @include my-mixin(green, black)
+  .eliminar
+    @include my-mixin(red, white)
+
+@mixin flexbox($direccion:row, $justify:center, $align:center, $gap:0px)
+  display: flex
+  flex-direction: $direccion
+  justify-content: $justify
+  align-items: $align
+  gap: $gap
+
+.section
+  height: 400px
+  background-color: purple
+  //@include flexbox($gap: 20px, $justify: space-between, $direccion: column)
+  @include flexbox(column, space-between, center, 20px)
+  div
+    width: 100px
+    height: 100px
+    background-color: yellow
+    border: 1px solid black
+  
+// BEM (BLOCK, ELEMENT, MODIFIER)
+// Sass permite el operador & para poder abreviar al hacer referencia al selector padre
+// El metodo BEM nos permite hacer referencia a los elementos dentro de un bloque
+// Divide las clases en tres partes: bloque, elemento y modificador
+
+.header
+  background-color: gray
+  &__titulo
+    font-size: 40px
+    color: white
+  &__boton
+    padding: 10px 20px
+    border: 0
+    color: white
+    &--red
+      background-color: red
+    &--green
+      background-color: green
+
+// @extend : Nos permite reutilizar estilos de otros selectores
+.boton_secundario
+  background-color: blue
+  @extend .header__boton

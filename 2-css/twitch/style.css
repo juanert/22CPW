@@ -141,7 +141,7 @@ main section:nth-child(2){
   height: auto;
   grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
   gap: 10px;
-background-color: rgb(194, 91, 91);
+  background-color: rgb(194, 91, 91);
   padding: 10px 20px;
 }
 
