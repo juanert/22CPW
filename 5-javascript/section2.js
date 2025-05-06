@@ -128,3 +128,38 @@ contar(5, 5);
   Por ejemplo, la serie de Fibonacci hasta 10 es: 0, 1, 1, 2, 3, 5, 8.
   La serie comienza con 0 y 1, y luego cada número es la suma de los dos anteriores.
 */
+
+/**
+ * @function fibonacci
+ * @description Calcula la serie de Fibonacci hasta un número límite.
+ * @param {*} limite - Límite hasta donde se calculará la serie de Fibonacci.
+ * @param {*} resultado_anterior - Valor anterior en la serie de Fibonacci.
+ * @param {*} resultado_actual - Valor actual en la serie de Fibonacci.
+ * @example fibonacci(10) // 0, 1, 1, 2, 3, 5, 8
+ * @returns {void} - No devuelve nada, solo imprime la serie de Fibonacci en la consola.
+ * @author Juan Rodriguez
+ * @date 2025-05-02
+ * @version 1.0.0
+ * @see {@link https://es.wikipedia.org/wiki/Sucesi%C3%B3n_de_Fibonacci} para más información sobre la serie de Fibonacci.
+ * @see {@link https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Function} para más información sobre funciones en JavaScript.
+ */
+function fibonacci(limite, resultado_anterior = 0, resultado_actual = 1) {
+  if (resultado_actual > limite) {
+    return;
+  }
+  console.log(resultado_actual);
+  fibonacci(limite, resultado_actual, resultado_anterior + resultado_actual);
+}
+
+fibonacci(10); //Ejecuta la funcion fibonacci hasta el limite 10
+
+/**
+ * Convenciones de nombres
+ * - Usa camelCase para nombres de variables y funciones (ejemplo: miVariable, calcularSuma).
+ * - Usa PascalCase para nombres de clases (ejemplo: MiClase).
+ * - Usa snake_case para nombres de archivos (ejemplo: mi_archivo.js).
+ * - Usa UPPER_SNAKE_CASE para constantes (ejemplo: PI, MAX_VALUE).
+ * - Usa nombres descriptivos y significativos para variables y funciones.
+ * - Evita abreviaciones innecesarias y nombres confusos.
+ * - Usa nombres en inglés para variables y funciones, a menos que estés trabajando en un proyecto específico en otro idioma.
+ */
