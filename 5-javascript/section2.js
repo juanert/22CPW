@@ -163,3 +163,196 @@ fibonacci(10); //Ejecuta la funcion fibonacci hasta el limite 10
  * - Evita abreviaciones innecesarias y nombres confusos.
  * - Usa nombres en inglés para variables y funciones, a menos que estés trabajando en un proyecto específico en otro idioma.
  */
+
+/*
+  En javascript los datos tienen metodos y propiedades, por lo que se pueden manipular de diferentes maneras.
+  Por ejemplo, los strings tienen metodos como .toUpperCase(), .toLowerCase(), .length, .charAt(), .indexOf(), .substring(), .slice(), .split(), .replace(), entre otros.
+*/
+
+const nombre = "Juan Rodriguez";
+console.log(nombre.length); //Imprime la longitud del string
+//Metodos
+console.log(nombre.toUpperCase()); //Imprime el string en mayusculas
+console.log(nombre.toLowerCase()); //Imprime el string en minusculas
+console.log(nombre.charAt(0)); //Imprime el primer caracter del string
+console.log(nombre.indexOf("Rodriguez")); //Imprime la posicion de la palabra Rodriguez en el string
+console.log(nombre.substring(0, 4)); //Imprime los primeros 4 caracteres del string
+console.log(nombre.slice(0, 4)); //Imprime los primeros 4 caracteres del string
+console.log(nombre.split(" ")); //Imprime el string separado por espacios
+console.log(nombre.replace("Rodriguez", "Daza")); //Reemplaza Rodriguez por Daza en el string
+console.log(nombre.replaceAll("Juan", "Pedro")); //Reemplaza todas las ocurrencias de Juan por Pedro en el string
+console.log(nombre.trim()); //Elimina los espacios en blanco al inicio y al final del string
+
+/*
+  Ejercicio
+  Realiza un programa que cuenta la cantidad de palabras y un vocales que tiene un string.
+  Por ejemplo, el string "Hola, soy Juan Rodriguez" tiene 4 palabras y 9 vocales.
+*/
+
+//Calcular la cantidad de palabras
+const texto = "Hola, soy Juan Rodriguez"; //String a analizar
+const cantidadPalabras = texto.split(" ").length; //Cantidad de palabras
+let cantidadDeVocales = 0; //Contador de vocales
+
+function contarVocales(texto, contador = 0) {
+  if (contador >= texto.length) {
+    return;
+  }
+  const letra = texto.charAt(contador).toLowerCase(); //Letra actual
+  if (
+    letra === "a" ||
+    letra === "e" ||
+    letra === "i" ||
+    letra === "o" ||
+    letra === "u" ||
+    letra === "á" ||
+    letra === "é" ||
+    letra === "í" ||
+    letra === "ó" ||
+    letra === "ú"
+  ) {
+    cantidadDeVocales++; //Aumenta el contador de vocales
+  }
+  contarVocales(texto, contador + 1); //Llamada recursiva con el siguiente caracter
+}
+
+contarVocales(texto); //Ejecuta la funcion contarVocales desde el primer caracter
+
+console.log("Cantidad de palabras: " + cantidadPalabras); //Imprime la cantidad de palabras
+console.log("Cantidad de vocales: " + cantidadDeVocales); //Imprime la cantidad de vocales
+
+/*
+  Ejercicios de metodos de string para estudiantes
+  // sin investigar
+  - Facil: Crea un programa que lea un string, lo limpie de espacios en blanco al inicio y al final y en caso de tener una longitud
+  superior a 20, imprima solo los primeros 20 caracteres y tres puntos suspensivos al final.
+
+  //sin investigar
+  - Intermedio: Crea un programa que tome un string y cambie todas las vocales por el caracter "X".
+
+  //sin investigar
+  - Avanzado: Crea un programa que tome un string y lo invierta. Por ejemplo, el string "Hola" se convierte en "aloH".
+
+  //opcional, pueden investigar
+  - Experto: Crea un programa que tome un string y cuente la cantidad de veces que aparece cada letra en el string. Por ejemplo, el string "Hola" tiene 1 "H", 1 "o", 1 "l" y 1 "a".
+*/
+
+/**
+ * @function recortar_texto
+ * @param {*} texto - Texto a recortar.
+ * @description Recorta un texto a 20 caracteres y agrega "..." al final si es necesario.
+ * @example recortar_texto("Hola a todos en la clase, este es un texto bastate largo e interesante que bueno, hara muchas cosas") // "Hola a todos en la c..."
+ * @returns {string} - Texto recortado.
+ * @author Juan Rodriguez
+ */
+function recortar_texto(texto) {
+  if (validar_string(texto)) {
+    return;
+  }
+  let texto_limpio = texto.trim();
+  if (texto_limpio.length > 20) {
+    return texto_limpio.slice(0, 20) + "...";
+  }
+}
+
+console.log(
+  recortar_texto(
+    "  Hola a todos en la clase, este es un texto bastate largo e interesante que bueno, hara muchas cosas                                              "
+  )
+);
+
+/**
+ * @function remplazar_vocales
+ * @param {*} texto  - Texto a modificar.
+ * @description Reemplaza todas las vocales de un string por "x".
+ * @example remplazar_vocales("Hola") // "Hxlx"
+ * @returns {string} - Texto modificado.
+ * @author Juan Rodriguez
+ */
+function remplazar_vocales(texto) {
+  if (validar_string(texto)) {
+    return;
+  }
+  return texto
+    .toLowerCase()
+    .replaceAll("a", "x")
+    .replaceAll("á", "x")
+    .replaceAll("e", "x")
+    .replaceAll("é", "x")
+    .replaceAll("i", "x")
+    .replaceAll("í", "x")
+    .replaceAll("o", "x")
+    .replaceAll("ó", "x")
+    .replaceAll("u", "x")
+    .replaceAll("ú", "x");
+}
+
+console.log(remplazar_vocales("Este es un string"));
+
+/**
+ * @function validar_string
+ * @param {*} texto - Texto a validar.
+ * @description Valida si el texto es un string.
+ * @example validar_string("Hola") // false
+ * @returns {boolean} - true si no es un string, false si es un string.
+ * @author Juan Rodriguez
+ */
+function validar_string(texto) {
+  if (typeof texto !== "string") {
+    console.error("Debes ingresar un string");
+    return true;
+  }
+  return false;
+}
+
+/**
+ * @function revertir_string
+ * @param {*} texto - Texto a invertir.
+ * @param {*} limite - Limite de caracteres a invertir.
+ * @param {*} palabra_invertida - Texto invertido.
+ * @param {*} contador - Contador de caracteres.
+ * @description Invierte un string de forma recursiva.
+ * @example revertir_string("Hola") // "aloH"
+ * @returns {string} - Texto invertido.
+ * @author Juan Rodriguez
+ */
+function revertir_string(
+  texto = "",
+  limite = 0,
+  palabra_invertida = "",
+  contador = 0
+) {
+  if (validar_string(texto) || contador >= limite) {
+    console.log("error");
+    return "error";
+  }
+  /*
+  utilizando metodos de strings y arrays
+  return texto.split("").reverse().join("")
+  */
+  let ultimo_caracter = texto.at(-1);
+  let texto_restante = texto.slice(0, texto.length - 1);
+  palabra_invertida = palabra_invertida + ultimo_caracter;
+  console.log(
+    "ultimo caracter " + ultimo_caracter + "\n",
+    "caracter eliminado " + texto_restante + "\n",
+    "palabra invertida " + palabra_invertida + "\n",
+    "contador " + contador + "\n"
+  );
+  if (contador == limite - 1) {
+    return palabra_invertida;
+  }
+
+  return revertir_string(
+    texto_restante,
+    limite,
+    palabra_invertida,
+    contador + 1
+  );
+}
+
+let frase = "hola";
+console.log(revertir_string(frase, frase.length));
+
+//hola
+//aloh
