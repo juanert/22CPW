@@ -356,3 +356,202 @@ console.log(revertir_string(frase, frase.length));
 
 //hola
 //aloh
+
+/*
+  Arrays y sus metodos
+  los arrays son elementos o listas que permiten almacenar una coleccion de datos.
+  Se definen con corchetes [] y los elementos se separan por comas.
+  Los arrays pueden contener cualquier tipo de dato, incluyendo otros arrays y objetos.
+*/
+
+const array = [1, 2, 3, 4, 5]; //Array de numeros
+const array2 = ["Juan", "Pedro", "Maria"]; //Array de strings
+const array3 = [1, "Juan", true, null]; //Array de diferentes tipos de datos
+
+lista_de_compras = [
+  {
+    nombre: "Leche",
+    precio: 2.5,
+    cantidad: 1,
+  },
+  {
+    nombre: "Pan",
+    precio: 1.5,
+    cantidad: 2,
+  },
+  {
+    nombre: "Huevos",
+    precio: 3.0,
+    cantidad: 12,
+  },
+  {
+    nombre: "Carne",
+    precio: 10.0,
+    cantidad: 1,
+  },
+  {
+    nombre: "Frutas",
+    precio: 5.0,
+    cantidad: 3,
+  },
+];
+
+console.log(lista_de_compras[0].nombre); //Imprime el primer elemento del array
+
+let lista_de_facturas = [
+  {
+    id: 1,
+    nombre_cliente: "Juan",
+    apellido_cliente: "Rodriguez",
+    fecha: "2023-10-01",
+    direccion: "Calle 123",
+    ciudad: "Bogota",
+    telefono: "123456789",
+    email: "ejemplo@hola.com",
+    productos: [
+      {
+        id: 1,
+        nombre: "Leche",
+        precio: 2.5,
+        cantidad: 1,
+      },
+      {
+        id: 2,
+        nombre: "Pan",
+        precio: 1.5,
+        cantidad: 2,
+      },
+    ],
+    total: 5.5,
+  },
+  {
+    id: 2,
+    nombre_cliente: "Pedro",
+    apellido_cliente: "Daza",
+    fecha: "2023-10-02",
+    direccion: "Calle 456",
+    ciudad: "Medellin",
+    telefono: "987654321",
+    email: "holahola@ejemplo.com",
+    productos: [
+      {
+        id: 3,
+        nombre: "Huevos",
+        precio: 3.0,
+        cantidad: 12,
+      },
+      {
+        id: 4,
+        nombre: "Carne",
+        precio: 10.0,
+        cantidad: 1,
+      },
+    ],
+    total: 13.0,
+  },
+];
+
+let ejemplo = [
+  [
+    {
+      categoria: "Charcuteria",
+      productos: [
+        {
+          nombre: "Salchichon",
+          precio: 2.5,
+          cantidad: 1,
+          tipos: [
+            {
+              nombre: "Salchichon de cerdo",
+              precio: 2.5,
+              cantidad: 1,
+            },
+            {
+              nombre: "Salchichon de pollo",
+              precio: 3.0,
+              cantidad: 1,
+            },
+          ],
+        },
+        {
+          nombre: "Jamon",
+          precio: 3.0,
+          cantidad: 1,
+          tipos: [
+            {
+              nombre: "Jamon de cerdo",
+              precio: 3.0,
+              cantidad: 1,
+            },
+            {
+              nombre: "Jamon de pavo",
+              precio: 3.5,
+              cantidad: 1,
+            },
+          ],
+        },
+      ],
+    },
+  ],
+];
+
+ejemplo[0][0].productos[0].tipos[1].nombre
+
+//Metodos de arrays
+const frutas = ["manzana", "banana", "naranja", "uva", "pera"];
+//Propiedad
+//length
+console.log(frutas.length); //Imprime la longitud del array
+//metodos
+frutas.push("kiwi"); //Agrega un elemento al final del array
+console.log(frutas);
+frutas.pop(); //Elimina el ultimo elemento del array
+console.log(frutas); //Imprime el array sin el ultimo elemento
+frutas.unshift("fresa"); //Agrega un elemento al inicio del array
+console.log(frutas); //Imprime el array con el nuevo elemento al inicio
+frutas.shift(); //Elimina el primer elemento del array
+console.log(frutas); //Imprime el array sin el primer elemento
+frutas.at(1); //Accede a una posicion del array
+console.log(frutas.toString()); //Convierte el array a string
+frutas.join(", "); //Convierte el array a string con un separador
+console.log(frutas.join("/")); //Convierte el array a string con un separador
+console.log(frutas.includes("banana")); //Verifica si el array contiene un elemento
+console.log(frutas.slice(1, 3)); //Corta el array desde la posicion 1 hasta la 3
+//console.log(frutas.splice(1, 2)); //Elimina dos elementos desde la posicion 1 (afecta el array original)
+console.log(frutas.sort()); //Ordena el array alfabéticamente
+console.log(frutas.reverse()); //Invierte el array
+
+//Funciones con nombre
+function ejemplo() {
+  console.log("Hola"); //Imprime "Hola" en la consola
+}
+//Funciones anonimas
+let ejemplo2 = function () {
+  console.log("Hola"); //Imprime "Hola" en la consola
+};
+
+ejemplo2()
+
+//Funciones flecha
+const ejemplo3 = () => {
+  console.log("Hola"); //Imprime "Hola" en la consola
+};
+
+ejemplo3()
+
+let frutas_5_letras = frutas.filter(
+  (fruta) => fruta.length > 5
+); //Filtra el array por longitud de la fruta
+
+console.log(frutas_5_letras); //Imprime el array filtrado
+
+frutas.map(
+  (fruta) => {
+    console.log(fruta); //Imprime cada fruta del array
+  }
+);
+
+
+
+
+
