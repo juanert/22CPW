@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Air Hockey!</title>
+        <link rel="icon" href="./Images/Logo.png">
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    <body class="bg-gray-700 grid place-items-center mt-12 gap-10 font-['Arial']">
+        <h1 class="font-bold text-3xl text-white"> Air Hockey - The Game</h1>
+        <h2 class="font-bold text-2xl text-white mb-[-50px]">Puntos</h2>
+        <h2 class="font-bold text-2xl text-white"><span id="puntosJ1">0</span> - <span id="puntosJ2">0</span></h2>
+        <canvas id="miCanvas">
+
+        </canvas>
+        <button id="iniciar" class=" px-6 py-4 rounded-xl bg-gradient-to-br from-cyan-500 to-cyan-800 font folt">Iniciar</button>
+    </body>
+    <script type="module" src="./Canvas.js"></script>
+</html>
