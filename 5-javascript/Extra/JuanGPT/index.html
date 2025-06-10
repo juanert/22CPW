@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body>
+    <section
+      id="conversation"
+      class="flex flex-col min-h-[70vh] items-center justify-center bg-gray-50 p-8"
+    >
+      <h1 class="text-2xl font-bold text-gray-800 mb-4">JuanGPT</h1>
+      <div
+        id="messages"
+        class="w-full bg-gray-200 rounded-lg shadow-lg p-6 overflow-y-auto p-8 flex flex-col gap-4 min-h-[60vh] max-h-[60vh] scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200"
+      >
+        <!-- Aquí se mostrarán los mensajes -->
+      </div>
+    </section>
+    <section
+      class="flex items-center justify-center min-h-[30vh] bg-gray-100 p-8"
+    >
+      <textarea
+        name="prompt"
+        id="prompt"
+        class="w-full rounded-lg border-2 border-gray-300 p-4 text-gray-700 focus:border-blue-500 focus:outline-none"
+        rows="5"
+        placeholder="Escribe aquí tu pregunta o mensaje para JuanGPT"
+      ></textarea>
+      <button
+        id="send"
+        class="mt-4 rounded-lg bg-blue-500 px-6 py-2 text-white hover:bg-blue-600 focus:outline-none"
+        onclick="crearMensaje()"
+      >
+        Enviar
+      </button>
+    </section>
+    <script src="./chat.js"></script>
+  </body>
+</html>
