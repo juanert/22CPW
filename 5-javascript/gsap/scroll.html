@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GSAP</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+      }
+      .box-container {
+        display: flex;
+        justify-content: center;
+        margin: 20px 0;
+        height: 100vh;
+      }
+      .box {
+        width: 100px;
+        height: 100px;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        margin: 0 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>GSAP Scrub Animation Example</h1>
+    <div class="box-container">
+      <div
+        class="box"
+        style="width: 100px; height: 100px; background-color: red"
+      ></div>
+    </div>
+    <div class="box-container">
+      <div
+        class="box"
+        style="width: 100px; height: 100px; background-color: yellow"
+      ></div>
+    </div>
+    <div class="box-container">
+      <div
+        class="box"
+        style="width: 100px; height: 100px; background-color: green"
+      ></div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", (event) => {
+        // Register the ScrollTrigger plugin
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Select all elements with the class 'box'
+        const boxes = document.querySelectorAll(".box");
+
+        // Animate each box with GSAP
+        boxes.forEach((box, index) => {
+          gsap.fromTo(
+            box,
+            { opacity: 0, y: 50 },
+            {
+              opacity: 1,
+              y: 0,
+              ease: "power1.inOut",
+              scrollTrigger: {
+                trigger: box,
+                start: "-200px center", // Start the animation when the top of the box is at the top of the viewport
+                end: "-50px center", // End the animation when the bottom of the box is at 20% of the viewport height
+                scrub: true, // Smoothly animate as you scroll
+                markers: true, // Show markers for debugging
+              },
+            }
+          );
+        });
+      });
+    </script>
+  </body>
+</html>

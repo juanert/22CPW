@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GSAP</title>
+  </head>
+  <body>
+    <h1>GSAP Animation Example</h1>
+    <div
+      class="box"
+      style="width: 100px; height: 100px; background-color: red"
+    ></div>
+    <div
+      class="box"
+      style="width: 100px; height: 100px; background-color: blue"
+    ></div>
+    <div
+      class="box"
+      style="width: 100px; height: 100px; background-color: green"
+    ></div>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+  </body>
+  <script>
+    // use a script tag or an external JS file
+    document.addEventListener("DOMContentLoaded", (event) => {
+      // Select all elements with the class 'box'
+      const boxes = document.querySelectorAll(".box");
+      console.log(boxes);
+      // Animate each box with GSAP
+      boxes.forEach((box, index) => {
+        /*
+        TO: Animación que va HASTA(Eso significa TO)
+        gsap.to(box, {
+          duration: 0.4 * (index + 1), // Increase duration for each box
+          x: 100 * (index + 1), // Move each box to the right
+          rotation: 360, // Rotate each box
+          delay: index * 0.4, // Delay each box's animation
+          ease: "power1.inOut", // Easing function
+        });
+        */
+        // FROM: Animación que va DESDE(Eso significa FROM)
+        /*
+        gsap.from(box, {
+          duration: 0.4 * (index + 1), // Increase duration for each box
+          x: 100 * (index + 1), // Move each box from the left
+          rotation: -360, // Rotate each box in the opposite direction
+          delay: index * 0.4, // Delay each box's animation
+          ease: "power1.inOut", // Easing function
+        });
+        */
+        // FROM TO: Animación que va DESDE HASTA(Eso significa FROM TO)
+        /*
+        gsap.fromTo(
+          box,
+          {
+            x: 100 * (index + 1), // Move each box from the left
+            rotation: -360, // Rotate each box in the opposite direction
+          },
+          {
+            duration: 0.4 * (index + 1), // Increase duration for each box
+            x: 0, // Move each box to its original position
+            rotation: 360, // Rotate each box to the final position
+            delay: index * 0.4, // Delay each box's animation
+            ease: "power1.inOut", // Easing function
+          }
+        );
+        */
+      });
+    });
+  </script>
+</html>
