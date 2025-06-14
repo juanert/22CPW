@@ -43,7 +43,11 @@ function register() {
     document.getElementById("resultado").innerHTML =
       "<p class='success'>Registro exitoso.</p>";
     console.log(usuarios);
-    usuarios = JSON.parse(usuarios);
+    if (typeof usuarios === "string") {
+      usuarios = JSON.parse(usuarios);
+    } else if (!Array.isArray(usuarios)) {
+      usuarios = [];
+    }
     usuarios.push({ user, email, password });
     localStorage.setItem("usuarios", JSON.stringify(usuarios));
   }

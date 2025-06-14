@@ -4,6 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <script>
+      if (sessionStorage.getItem("usuario")) {
+        window.location.href = "./characters.html";
+      }
+    </script>
   </head>
   <body>
     <label for="usuario">
@@ -15,6 +20,7 @@
       Contraseña:
       <input type="password" id="password" name="password" required />
     </label>
+    <button onclick="login()" type="submit">Enviar</button>
     <div id="resultado"></div>
     <script src="./js/auth.js"></script>
   </body>

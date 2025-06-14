@@ -1,9 +1,14 @@
 function actualizarInformacion() {
-  const users = JSON.parse(localStorage.getItem("users")) || [];
-  const user = sessionStorage.getItem("user");
+  const users = JSON.parse(localStorage.getItem("usuarios")) || [];
+  let user = sessionStorage.getItem("usuario");
+  let email = document.getElementById("email").value.trim();
+  let password = document.getElementById("password").value.trim();
+  let confirmPassword = document.getElementById("confirmPassword").value.trim();
   const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
   const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
   let errores = [];
+
+  user = users.find((u) => u.user === user);
 
   //Validar que actualizare
   if (password && confirmPassword && email !== user.email && email) {
@@ -40,8 +45,6 @@ function actualizarInformacion() {
       ).innerHTML += `<p class="error">${error}</p>`;
     });
   } else {
-    document.getElementById("resultado").innerHTML =
-      "<p class='success'>Información actualizada exitosamente.</p>";
     let updatedUser = {
       user: user.user,
       email: user.email,
@@ -65,25 +68,34 @@ function actualizarInformacion() {
       };
     }
 
-    const userIndex = users.findIndex((u) => u.user === user);
+    const userIndex = users.findIndex((u) => u.user === user.user);
 
     if (userIndex !== -1) {
       users[userIndex] = updatedUser;
-      localStorage.setItem("users", JSON.stringify(users));
-      sessionStorage.setItem("user", JSON.stringify(updatedUser));
+      localStorage.setItem("usuarios", JSON.stringify(users));
+      sessionStorage.setItem("usuario", updatedUser.user);
+      document.getElementById("resultado").innerHTML =
+        "<p class='success'>Información actualizada exitosamente.</p>";
     }
   }
 }
 
 function mostrarInformacion() {
-  const user = sessionStorage.getItem("user");
+  const user = sessionStorage.getItem("usuario");
   if (!user) {
     alert("No hay un usuario conectado.");
     return;
   }
-  const userData = JSON.parse(user);
-  document.getElementById("user").value = userData.user || "";
+  const users = JSON.parse(localStorage.getItem("usuarios")) || [];
+  if (!users || users.length === 0) {
+    alert("No hay usuarios registrados.");
+    return;
+  }
+  const userData = users.find((u) => u.user === user);
+  document.getElementById("usuario").value = userData.user || "";
   document.getElementById("email").value = userData.email || "";
   document.getElementById("password").value = "";
   document.getElementById("confirmPassword").value = "";
 }
+
+mostrarInformacion();
