@@ -117,32 +117,32 @@ apellido = "Gonzalez"; // Reasignación de variable
 //Ejercicos para practicar la lógica
 
 // (Facil)
-var uno = !true || false; //false
-var dos = false && !false; //false
-var tres = true && !false; //true
+var uno = !true || false;
+var dos = false && !false;
+var tres = true && !false;
 
 //(Medio)
-var cuatro = 5 === 5 || !true; //true
-var cinco = !0 || 5 < 0; //true
-var seis = 3 > 4 && !0; //false
+var cuatro = 5 === 5 || !true;
+var cinco = !0 || 5 < 0;
+var seis = 3 > 4 && !0;
 
 //Avanzado
-var siete = ((false || true) && !false && true) || (true && false); //true
-var ocho = 6 === 3 + 3 && 9 / 3 >= 3; //true
-var nueve = !!false || ("1" == 1 && !false === true); //true
+var siete = ((false || true) && !false && true) || (true && false);
+var ocho = 6 === 3 + 3 && 9 / 3 >= 3;
+var nueve = !!false || ("1" == 1 && !false === true);
 
 //Hardcore
-var diez = !!true === !!(5 >= 5); //true
-var once = !(true && !true === !!(8 === 4 * 2)); //true
+var diez = !!true === !!(5 >= 5);
+var once = !(true && !true === !!(8 === 4 * 2));
 
 //Ultra-Hardcore
-var doce = !(true && !true === !!(16 === 4 * 2 + 8)) !== false; //true
+var doce = !(true && !true === !!(16 === 4 * 2 + 8)) !== false;
 
 //Leyenda
 var trece = !(
   (!(!(10 / 5 == "2") === false) != false) === 5 * 5 <= 100 / 4 &&
   !(1 + 1 !== 10 / 5) !== true
-); //true
+);
 
 /*
   Condicionales
