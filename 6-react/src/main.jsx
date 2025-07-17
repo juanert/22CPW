@@ -2,6 +2,8 @@ import { Button } from "./components/general/Button.jsx";
 import { Container } from "./components/general/Container.jsx";
 import { StrictMode } from "react";
 import { Title } from "./components/general/Title.jsx";
+import { ButtonUseState } from "./components/hooks/UseState.jsx";
+import { ShowingApi } from "./components/hooks/UseEffect.jsx";
 import { createRoot } from "react-dom/client";
 
 createRoot(document.getElementById("root")).render(
@@ -13,9 +15,11 @@ createRoot(document.getElementById("root")).render(
         color="orange-600"
         textColor="white"
         extraClasses="mx-4 my-4"
-      ></Button>
-      <Button></Button>
-      <Button></Button>
+      />
+      <Button />
+      <Button />
+      <ButtonUseState />
     </Container>
+    <ShowingApi />
   </StrictMode>
 );
