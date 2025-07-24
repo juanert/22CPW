@@ -9,18 +9,12 @@ export default function ThemeExample() {
   const { theme, toggleTheme } = useTheme(); // <-- Utilizar el hook useTheme para llamar a theme y toggleTheme desde el contexto.
 
   return (
-    <div className="p-4">
-      <h2 className="text-xl font-bold mb-2">Theme: {theme}</h2>
+    <div className="flex justify-between items-center p-4">
+      <h2 className="text-xl font-bold mb-2">Tema actual: {theme}</h2>
       <button
         onClick={toggleTheme}
-        className={
-          `px-4 py-2` +
-          " " +
-          (theme === "dark"
-            ? "bg-blue-400 text-white"
-            : "bg-blue-600 text-white")
-        }>
-        Toggle Theme
+        className="px-4 py-2 rounded-md bg-blue-600 text-white">
+        Cambiar tema
       </button>
     </div>
   );

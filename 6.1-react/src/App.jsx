@@ -1,5 +1,10 @@
+import APIExample from "./components/APIExample";
+import APIExample2 from "./components/APIExample2";
+import LoginForm from "./components/LoginForm";
 import ThemeExample from "./components/ThemeExample";
 import { ThemeProvider } from "./context/ThemeProvider";
+import UseState from "./hooks/UseState";
+import UseRef from "./hooks/UseRef";
 
 /**
  * Componente principal de la aplicación.
@@ -13,6 +18,14 @@ function App() {
     <ThemeProvider>
       <main className="mx-auto space-y-8 py-8">
         <ThemeExample />
+        <UseState />
+        <UseRef />
+        <hr />
+        <LoginForm />
+        <hr />
+        <APIExample />
+        <hr />
+        <APIExample2 />
       </main>
     </ThemeProvider>
   );
