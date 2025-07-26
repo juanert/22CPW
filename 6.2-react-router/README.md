@@ -1,6 +1,6 @@
-# Proyecto de demostración de React
+# Proyecto de demostración de react-router
 
-Provee ejemplos de uso de múltiples aspectos de React, como: componentes, hooks y rutas.
+Provee ejemplos de uso de las rutas de React.
 
 ## Instalación
 
