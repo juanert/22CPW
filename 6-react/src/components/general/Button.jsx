@@ -1,3 +1,6 @@
+import { useContext } from "react";
+import { ThemeContext } from "../../context/Layout.jsx";
+
 /**
  * @component Button
  * @description Component used to create personalized buttons using Tailwind CSS.
@@ -14,9 +17,11 @@ function Button({
   textColor = "white",
   extraClasses = "",
 }) {
+  // Use context if needed, e.g., for theming
+  const { theme, setTheme } = useContext(ThemeContext);
   return (
-    <button className={`bg-${color} text-${textColor} ${extraClasses}`}>
-      {text}
+    <button onClick={() => setTheme(theme === "light" ? "dark" : "light")} className={`bg-${color} text-${textColor} ${extraClasses}`}>
+      {text} - {theme}
     </button>
   );
 }
