@@ -7,9 +7,12 @@ import { ShowingApi } from "./components/hooks/UseEffect.jsx";
 import { createRoot } from "react-dom/client";
 import { Tablero } from "./components/tresEnRaya/Tablero.jsx";
 import { ThemeProvider } from "./context/Layout.jsx";
+import { ChatJUANGPT } from "./components/chat/ChatJUANGPT.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
+    <ChatJUANGPT/>
+    {/* 
     <ThemeProvider>
       <Tablero />
       <Container direction="col" extraClasses="bg-gray-100 h-screen gap-4">
@@ -26,5 +29,6 @@ createRoot(document.getElementById("root")).render(
       </Container>
       <ShowingApi />
     </ThemeProvider>
+    */}
   </StrictMode>
 );
