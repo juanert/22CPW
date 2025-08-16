@@ -1,4 +1,6 @@
 import time #se importa la libreria de tiempo
+import os #se importa la libreria de sistema operativo
+import re #se importa la libreria de expresiones regulares
 
 # Esto es un comentario
 """
@@ -159,3 +161,38 @@ try:
   print(info)
 except:
   print("Hubo algun error")
+
+#Manejo de archivos
+"""
+  w = write
+  r = read
+  a = append
+  x = create
+"""
+archivo = open("archivo.txt", "w")  # Abrir un archivo en modo escritura
+archivo.write("Hola, este es un archivo de texto.\n")
+archivo.close()  # Cerrar el archivo
+
+archivo = open("archivo.txt", "a")  # Abrir el archivo en modo append
+archivo.write("Hola, este es un nuevo texto.\n")
+archivo.close()  # Cerrar el archivo
+
+archivo = open("archivo.txt", "r")  # Abrir el archivo en modo lectura
+#leer el archivo linea por linea
+for linea in archivo:
+  print(linea)
+
+archivo.close()  # Cerrar el archivo
+
+#eliminar el archivo
+os.remove("archivo.txt")
+
+correo = "juan.rodriguez@example.com"
+
+#validar correo con regex
+
+regex = r'^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$'
+if re.match(regex, correo):
+  print("El correo es válido")
+else:
+  print("El correo no es válido")
