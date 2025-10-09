@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+import mongoosePaginate from 'mongoose-paginate-v2';
 
 /**
  * Definición del esquema y modelo de Usuario
@@ -70,4 +71,8 @@ const usuarioSchema = new mongoose.Schema({
   rol: { type: String, enum: ['admin', 'user'], default: 'user', lowercase: true },
 }, { timestamps: true });
 
+usuarioSchema.plugin(mongoosePaginate);
+
 export const Usuario = mongoose.model('Usuario', usuarioSchema);
+
+Usuario.paginate().then({}); // Inicializar el plugin de paginación

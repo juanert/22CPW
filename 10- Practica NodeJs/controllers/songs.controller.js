@@ -31,8 +31,8 @@ export const getSongById = async (req, res) => {
 
 export const createSong = async (req, res) => {
   try {
-    const { title, artist, album, year, genre } = req.body;
-    const newSong = new Song({ title, artist, album, year, genre });
+    const { title, artist, album, year, genre, cover_url, audio } = req.body;
+    const newSong = new Song({ title, artist, album, year, genre, cover_url, audio_url });
     await newSong.save();
     res.status(201).json(newSong);
   } catch (error) {

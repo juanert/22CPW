@@ -15,9 +15,15 @@ export const getAllUsers = async (req, res) => {
   if (apellido) {
     filter.apellido = new RegExp(apellido, 'i'); // Filtro por apellido si se proporciona
   }
-  await Usuario.find(filter) // Solo usuarios no eliminados
-    .then(usuarios => res.json(usuarios))
-    .catch(err => res.status(400).json({ error: 'Error al obtener usuarios' }));
+  //Traer datos paginados
+  const options = {
+    page: parseInt(req.query.page) || 1,
+    limit: 10,
+    sort: { createdAt: -1 },
+  };
+  await Usuario.paginate(filter, options)
+    .then(result => res.json(result))
+    .catch(err => res.status(400).json({ error: 'Error al obtener los usuarios' }));
 }
 
 /**

@@ -9,7 +9,7 @@ const songSchema = new mongoose.Schema({
     trim: true,
     validate: {
       validator: function (v) {
-        return RegExp(["A-Za-záéíóúÁÉÍÓÚñÑ0-9'.,!?¡¿ ]+$"]).test(v); // Letras, números y signos de puntuación básicos
+        return /^[A-Za-záéíóúÁÉÍÓÚñÑ0-9'.,!?¡¿ ]+$/.test(v);
       },
       message: props => `${props.value} no es un título válido!`
     }
