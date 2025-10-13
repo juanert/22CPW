@@ -22,7 +22,7 @@ const usuarioSchema = new mongoose.Schema({
     lowercase: true,
     validate: {
       validator: function (v) {
-        return /^[A-Za-záéíóúÁÉÍÓÚñÑ ]+$/.test(v); // Solo letras
+        return /^[A-Za-záéíóúÁÉÍÓÚñÑ' ]+$/.test(v); // Solo letras
       },
       message: props => `${props.value} no es un nombre válido!`
     },
@@ -67,7 +67,16 @@ const usuarioSchema = new mongoose.Schema({
     }
   },
   eliminado: { type: Boolean, default: false },
-  fecha_nacimiento: Date,
+  fecha_nacimiento: {
+    type: Date,
+    validate: {
+      validator: function (v) {
+        //validar que no sea una fecha futura
+        return v <= new Date();
+      },
+      message: props => `La fecha de nacimiento no puede ser futura!`
+    }
+  },
   rol: { type: String, enum: ['admin', 'user'], default: 'user', lowercase: true },
 }, { timestamps: true });
 

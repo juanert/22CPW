@@ -57,9 +57,10 @@ export const getUserById = async (req, res) => {
 export const createUser = async (req, res) => {
   const { nombre, apellido, email, password, fecha_nacimiento, rol } = req.body;
   const nuevoUsuario = new Usuario({ nombre, apellido, email, password, fecha_nacimiento, rol });
+  console.log(nuevoUsuario);
   await nuevoUsuario.save()
     .then(usuario => res.status(201).json(usuario))
-    .catch(err => res.status(400).json({ error: 'Error al crear el usuario', details: err.message }));
+    .catch(err => {res.status(400).json({ error: 'Error al crear el usuario', details: err.message })});
 }
 
 /**
